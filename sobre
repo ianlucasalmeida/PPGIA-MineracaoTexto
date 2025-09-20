@@ -1,0 +1,38 @@
+Classificação de Discurso de Ódio Contra a Mulher - Competição Kaggle
+Este projeto visa participar da competição Kaggle de classificação de discurso de ódio contra a mulher, utilizando os datasets fornecidos para treinar um modelo de classificação de texto e gerar um arquivo de submissão.
+
+Objetivo
+O principal objetivo deste projeto é desenvolver um modelo de machine learning capaz de classificar textos em português como discurso de ódio contra a mulher (classe 1) ou não (classe 0), com base nos dados de treino fornecidos, e gerar um arquivo de submissão para a competição Kaggle.
+
+Dados
+Os datasets utilizados são:
+
+kaggle_train.csv: Contém os dados de treinamento com textos e suas respectivas labels (0 ou 1).
+kaggle_test.csv: Contém os dados de teste com textos, sem as labels.
+Os dados foram carregados com sucesso no notebook.
+
+Metodologia
+O projeto seguiu os seguintes passos:
+
+Carregamento dos Dados: Os datasets de treino e teste foram carregados em dataframes pandas.
+Análise Exploratória dos Dados (EDA): Foi realizada uma análise inicial para entender a estrutura dos dados e a distribuição da variável alvo. Não foram encontrados valores ausentes nos datasets utilizados.
+Pré-processamento dos Dados: Os textos foram pré-processados para prepará-los para a modelagem:
+Conversão para minúsculas.
+Remoção de pontuações e caracteres especiais.
+Tokenização.
+Remoção de stop words em português.
+Aplicação de stemming (usando o stemmer RSLP para português).
+Engenharia de Features: As representações numéricas dos textos pré-processados foram criadas utilizando TF-IDF (Term Frequency-Inverse Document Frequency).
+Treinamento do Modelo: Um modelo de Regressão Logística foi treinado nos dados de treino com as features TF-IDF.
+Avaliação do Modelo: A acurácia do modelo não pôde ser calculada diretamente no conjunto de teste fornecido, pois ele não contém as labels reais. A avaliação final dependerá da submissão na plataforma Kaggle.
+Preparação do Arquivo de Submissão: As previsões do modelo foram geradas para o conjunto de teste e formatadas em um arquivo CSV (submission.csv) com as colunas ID e label.
+Arquivo de Submissão
+O arquivo de submissão gerado (submission.csv) contém as seguintes colunas:
+
+ID: O identificador único de cada texto no conjunto de teste.
+label: A label prevista pelo modelo (0 ou 1).
+Este arquivo está pronto para ser submetido na plataforma Kaggle para avaliação.
+
+Próximos Passos
+Submeter o arquivo submission.csv na competição Kaggle.
+Considerar experimentação com outros modelos de classificação ou técnicas de engenharia de features para melhorar a performance.
